@@ -14,7 +14,7 @@
 
 ## Overview
 
-PureKFD is an exploit based Jailed Package Manager, supporting iOS versions 14.0 through 18.0/18.1b4 using SparseRestore, KFD `CVE-2023-41974`, and MDC `CVE-2022-46689`. PureKFD allows users to customize their experience through a user-friendly interface, utilizing community-developed tweaks available from the community’s repositories.
+PureKFD is an exploit based Jailed Package Manager, supporting iOS versions 14.0 through 18.0/18.1b4 using SparseRestore `CVE-2024-44252`, KFD `CVE-2023-41974`, and MDC `CVE-2022-46689`. PureKFD allows users to customize their experience through a user-friendly interface, utilizing community-developed tweaks available from the community’s repositories.
 
 ## Getting Started
 
