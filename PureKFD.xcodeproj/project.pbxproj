@@ -160,13 +160,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		657BA6AC2C9EDC030002FDAD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 656C14A12C2D32D60017F279 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 65916F392C9532C3005C8462;
-			remoteInfo = SparseBox;
-		};
 		65916F3F2C9540C9005C8462 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 656C14A12C2D32D60017F279 /* Project object */;
@@ -269,20 +262,8 @@
 		65DA9E152C3100DC007D9AAA /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6589F2222CB1E93600F742D8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Backend/SparseRestore/exploit/__init__.py,
-				Backend/SparseRestore/exploit/backup.py,
-				Backend/SparseRestore/exploit/mbdb.py,
-			);
-			target = 65486BA92C8571A9002E2F28 /* PureRestore */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		65486BAB2C8571A9002E2F28 /* PureRestore */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (6589F2222CB1E93600F742D8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (Backend/SparseRestore/exploit, ); path = PureRestore; sourceTree = "<group>"; };
+		65486BAB2C8571A9002E2F28 /* PureRestore */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (Backend/SparseRestore/exploit, ); path = PureRestore; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -687,7 +668,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				657BA6AB2C9EDC030002FDAD /* PBXTargetDependency */,
 			);
 			name = "PureKFD noSparse";
 			packageProductDependencies = (
@@ -927,11 +907,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		657BA6AB2C9EDC030002FDAD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 65916F392C9532C3005C8462 /* SparseBox */;
-			targetProxy = 657BA6AC2C9EDC030002FDAD /* PBXContainerItemProxy */;
-		};
 		65916F402C9540C9005C8462 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 65916F392C9532C3005C8462 /* SparseBox */;
@@ -948,6 +923,7 @@
 				CODE_SIGN_ENTITLEMENTS = PureRestore/PureRestore.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -979,6 +955,7 @@
 				CODE_SIGN_ENTITLEMENTS = PureRestore/PureRestore.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -1071,6 +1048,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
@@ -1127,6 +1105,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6Q625HQD73;
@@ -1166,6 +1145,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6Q625HQD73;
@@ -1205,6 +1185,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6Q625HQD73;
@@ -1247,6 +1228,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6Q625HQD73;
@@ -1287,6 +1269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				DEBUGGING_SYMBOLS = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 6Q625HQD73;
@@ -1302,6 +1285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_ALLOWED = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6Q625HQD73;
 				OTHER_CFLAGS = "";

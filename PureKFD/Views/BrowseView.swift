@@ -157,6 +157,7 @@ struct RepoListRowView: View {
                                         if let uiImage = state.imageContainer?.image,
                                            let accentColor = averageColor(from: uiImage) {
                                             accent = Color(accentColor.bright())
+                                            appData.setRepoLiveAccent(accent, repo.url, repo.iconURL)
                                         }
                                     }
                                 }
@@ -177,7 +178,9 @@ struct RepoListRowView: View {
                     Image(systemName: "chevron.right").foregroundColor(accent ?? repo.accentColor ?? .accentColor).font(.footnote)
                 }
             }.padding()
-        }.background(RoundedRectangle(cornerRadius: 25).foregroundColor((accent ?? repo.accentColor ?? .accentColor).opacity(0.1))).listRowSeparator(.hidden).contextMenu {
+        }.background(RoundedRectangle(cornerRadius: 25).foregroundColor((accent ?? repo.accentColor ?? .accentColor).opacity(0.1))).listRowSeparator(.hidden).onAppear() {
+            accent = repo._liveAccent
+        }.contextMenu {
             if let url = repo.prettyURL {
                 Text(url).font(.footnote).minimumScaleFactor(0.5).lineLimit(1).opacity(0.5)
             }

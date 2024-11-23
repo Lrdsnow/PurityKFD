@@ -57,6 +57,21 @@ public struct Repo: Codable, Hashable {
         }
     }
     
+    var _liveAccent: Color? = nil
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case description
+        case url
+        case fullURL
+        case icon
+        case accent
+        case featured
+        case packages
+        case defaultRowAccent
+        case error
+    }
+    
     init(_ _error: Error, _ _url: URL?) {
         name = "Unknown Repo"
         description = _url?.absoluteString ?? _error.localizedDescription

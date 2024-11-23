@@ -112,6 +112,7 @@ struct TweakView: View {
                 }.padding().padding(.top, 20)
             }
         }.animation(.easeInOut(duration: 0.25), value: bgColor).onAppear() {
+            accent = tweak._liveAccent
             queued = appData.queued_pkgs.contains(where: { $0.0.bundleid == tweak.bundleid })
             installed = appData.installed_pkgs.contains(where: { $0.bundleid == tweak.bundleid })
         }

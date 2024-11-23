@@ -44,6 +44,42 @@ public struct Package: Codable {
     }
     var installed: Bool
     
+    var _liveAccent: Color? = nil
+    
+    private enum CodingKeys: String, CodingKey {
+        // Package Info
+        case name
+        case bundleid
+        case author
+        case version
+        case description
+        case long_description
+        case icon
+        case accent
+        case accentRow
+        case screenshots
+        case banner
+        case category
+        case depiction
+        
+        // Install Values
+        case path
+        case versions
+        
+        // Repo Values
+        case url
+        case repo
+        case feature
+        
+        // Installed Values
+        case disabled
+        case hasprefs
+        case hasRestore
+        case error
+        case varonly
+        case installed
+    }
+    
     // JSON init stuff
     init(_ json: [String: Any], _ _repo: Repo?, _ _featured: [Featured]?) {
         name = json["name"] as? String ?? "Unknown Tweak"
@@ -63,6 +99,9 @@ public struct Package: Codable {
         }
         accent = json["accent"] as? String
         accentRow = json["accentRow"] as? String ?? _repo?.defaultRowAccent
+        if let _override_accent = json["FORCE_ACCENT_OVERRIDE"] as? String {
+            _liveAccent = Color(hex: _override_accent)
+        }
         let _banner = json["banner"] as? String
         if let _banner = _banner {
             if _banner.hasPrefix("https://") || _banner.hasPrefix("http://") {

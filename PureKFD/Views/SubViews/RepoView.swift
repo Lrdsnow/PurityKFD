@@ -140,6 +140,7 @@ struct TweakListRowView: View {
                                                    let accentColor = averageColor(from: uiImage) {
                                                     DispatchQueue.main.async {
                                                         accent = Color(accentColor.bright())
+                                                        appData.setPkgLiveAccent(accent, tweak.bundleid, tweak.icon)
                                                     }
                                                 }
                                             }
@@ -179,6 +180,7 @@ struct TweakListRowView: View {
             }.padding())
         )
         }.background(RoundedRectangle(cornerRadius: 25).foregroundColor((accent ?? tweak.accentColor ?? tweak.repo?.accentColor ?? .accentColor).opacity(0.1))).onAppear() {
+            accent = tweak._liveAccent
             if search {
                 Task(priority: .background) {
                     DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {

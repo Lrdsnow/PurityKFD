@@ -240,7 +240,7 @@ struct InstalledView: View {
                                             
                                             if tweak.hasRestore {
                                                 Button(action: {
-                                                    TweakHandler.applyTweak(pkg: tweak, appData.selectedExploit, .restore, saveEnv)
+                                                    TweakHandler.applyTweaks(pkgs: [tweak], appData.selectedExploit, .restore, savedSettings, saveEnv)
                                                 }, label: {
                                                     HStack {
                                                         Text("Restore Files")

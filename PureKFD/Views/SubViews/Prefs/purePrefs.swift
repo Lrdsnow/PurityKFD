@@ -53,7 +53,7 @@ struct PrefView: View {
             } else {
                 loadingView()
             }
-        }
+        }.accentColor(selectedTweak?._liveAccent)
     }
     
     func loadPreferences(pkgpath: URL) {

@@ -28,6 +28,7 @@ public class RepoHandler: ObservableObject {
                     URL(string: "https://raw.githubusercontent.com/dora727/doworarepo/master/Essentials/manifest.json")!, // MeowRepo - Built for PureKFD v6
                     URL(string: "https://raw.githubusercontent.com/Lrdsnow/SnowRepo/refs/heads/main/v6/repo.json")!, // SnowRepo - Built for PureKFD v6
                     URL(string: "https://raw.githubusercontent.com/jailbreakdotparty/jailbreak.party-repo/refs/heads/main/v6/repo.json")!, // Jailbreak.party - Built for PureKFD v6
+                    URL(string: "https://raw.githubusercontent.com/lunginspector/SparseTweaks/refs/heads/main/v6/repo.json")!, // SparseTweaks - Built for PureKFD v6
                     URL(string: "https://raw.githubusercontent.com/Dreel0akl/poopypoopermaybeworking/master/Essentials/manifest.json")!, // Poop Repo - Built for PureKFD
                     URL(string: "https://raw.githubusercontent.com/circularsprojects/circles-repo/main/purekfd.json")!, // Circular's Repo - Built for PureKFD
                     URL(string: "https://raw.githubusercontent.com/EPOS05/EPOSbox/main/purekfd.json")!, // EPOS Box - Built for PureKFD
@@ -53,13 +54,14 @@ public class RepoHandler: ObservableObject {
     
     func updateRepos(_ appData: AppData) {
         for url in repo_urls {
-            getRepo(url) { repo, error in
+            getRepo(url, appData) { repo, error in
                 if var repo = repo {
                     
                     var new_pkgs: [Package] = []
                     repo.packages.forEach({ pkg in
                         var temp_pkg = pkg
                         temp_pkg.feature = repo.featured?.first(where: { $0.bundleid == pkg.bundleid })
+                        temp_pkg._liveAccent = appData.getLiveAccent(temp_pkg.bundleid, temp_pkg.icon)
                         new_pkgs.append(temp_pkg)
                     })
                     repo.packages = new_pkgs
@@ -97,11 +99,16 @@ public class RepoHandler: ObservableObject {
         }
     }
     
-    func getRepo(_ url: URL, completion: @escaping (Repo?, Error?) -> Void) {
+    func getRepo(_ url: URL, _ appData: AppData? = nil, completion: @escaping (Repo?, Error?) -> Void) {
         AF.request(url).responseJASON { response in
             switch response.result {
             case .success(let json):
-                completion(Repo(json, url), nil)
+                var repo = Repo(json, url)
+                if appData != nil,
+                   let repoKey = repo.url?.absoluteString {
+                    repo._liveAccent = appData?.getLiveAccent(repoKey, repo.iconURL)
+                }
+                completion(repo, nil)
             case .failure(let error):
                 completion(Repo(error, url), error)
             }
